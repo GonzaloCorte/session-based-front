@@ -1,16 +1,17 @@
-import { userRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
-import { Link } from 'components';
-import { Layout } from 'components/account';
-import { userService, alertService } from 'services';
+import Link from 'next/link';
+// import { Link } from '@/components';
+import { Layout } from '@/components/account';
+import { userService, alertService } from '@/services';
 
 export default Login;
 
 function Login() {
-    const router = userRouter();
+    const router = useRouter();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().required('Username is required'),

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
-import { alertService, AlertType } from 'services';
+import { alertService, AlertType } from '@/services';
 
 export { Alert };
 
@@ -28,7 +28,7 @@ function Alert({ id, fade }) {
                 if (!alert.message) {
                     setAlerts(alerts => {
                         // filter out alerts without 'keepAfterRouteChange' flag
-                        const filterAlerts = alerts.filter(x => x.keepAfterRouteChange)
+                        const filteredAlerts = alerts.filter(x => x.keepAfterRouteChange)
 
                         // set keepAfterRouteChange flag to false on the rest 
                         filteredAlerts.forEach(x => delete x.keepAfterRouteChange);

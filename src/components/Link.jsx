@@ -4,10 +4,8 @@ export { Link };
 
 function Link({ href, children, ...props }) {
     return (
-        <NextLink href={href}>
-            <a {...props}>
+        <NextLink href={href} {...props}>
                 {children}
-            </a>
         </NextLink>
     )
 }
